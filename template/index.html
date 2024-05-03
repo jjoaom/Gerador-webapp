@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" id="theme-color" content="">
+    <title id="name">Maxcast</title>
+    <meta name="description" content="">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <link rel="manifest" id="app-manifest" href="manifest.webmanifest">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" id="web-app-title" content="">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="msapplication-starturl" content="index.php">
+    <link rel="icon" type="image/x-icon" href="">
+    <link rel="apple-touch-icon" href="">
+    <link rel="shortcut icon" href="">
+    <!-- bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <!--material icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a4c7c1edd6.js" crossorigin="anonymous"></script>
+
+    <style>
+        .floating-card {
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            animation: float-up 0.5s ease-out;
+            animation-fill-mode: forwards;
+            width: 80%;
+        }
+
+        @keyframes float-up {
+            from {
+                transform: translate(-50%, 100%);
+            }
+
+            to {
+                transform: translate(-50%, 0);
+            }
+        }
+
+        #letra_nome {
+            overflow: hidden;
+        }
+
+        #letra_p {
+            /* animation properties */
+            -moz-transform: translateX(100%);
+            -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+
+            -moz-animation: my-animation 11s linear infinite;
+            -webkit-animation: my-animation 11s linear infinite;
+            animation: my-animation 11s linear infinite;
+        }
+
+        /* for Firefox */
+        @-moz-keyframes my-animation {
+            from {
+                -moz-transform: translateX(100%);
+            }
+
+            to {
+                -moz-transform: translateX(-100%);
+            }
+        }
+
+        /* for Chrome */
+        @-webkit-keyframes my-animation {
+            from {
+                -webkit-transform: translateX(100%);
+            }
+
+            to {
+                -webkit-transform: translateX(-100%);
+            }
+        }
+
+        @keyframes my-animation {
+            from {
+                -moz-transform: translateX(100%);
+                -webkit-transform: translateX(100%);
+                transform: translateX(100%);
+            }
+
+            to {
+                -moz-transform: translateX(-100%);
+                -webkit-transform: translateX(-100%);
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <button class="btn border border-white shadow" title="Menu" aria-label="Menu" id="menu" type="button"
+        data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+        <i class="fa-solid fa-bars fa-xl"></i>
+    </button>
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title icons" id="offcanvasExampleLabel">Menu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div>
+                <!--Botão rede social-->
+                <button title="Redes Sociais" aria-label="Redes Sociais" type="button"
+                    class="btn d-flex justify-content-start icons redeMenu" data-bs-toggle="modal"
+                    data-bs-target="#modalRedeSocial">
+                    Redes Sociais
+                </button>
+                <!--Botão rede social-->
+                <!--Botão Programacao-->
+                <button title="Programação" aria-label="Programação" type="button"
+                    class="btn d-flex justify-content-start icons programacaoMenu" data-bs-toggle="modal"
+                    data-bs-target="#modalProgramacao">
+                    Programação
+                </button>
+                <!--Botão Programacao-->
+                <!--Botão Pedido de música-->
+                <button title="PedidodeMusica" aria-label="PedidodeMúsica" type="button"
+                    class="btn d-flex justify-content-start icons pedemusicaMenu" data-bs-toggle="modal"
+                    data-bs-target="#modalpedemusica">
+                    Pedido de Música
+                </button>
+                <!--Botão  Pedido de música-->
+                <!--Botão Recados-->
+                <button title="Recados" aria-label="Recados" type="button"
+                    class="btn d-flex justify-content-start icons RecadosMenu" data-bs-toggle="modal"
+                    data-bs-target="#modalRecados">
+                    Recados
+                </button>
+                <!--Botão Recados-->
+                <!--Botão Locutores-->
+                <button title="Locutores" aria-label="Locutores" type="button"
+                    class="btn d-flex justify-content-start icons locutoresMenu" data-bs-toggle="modal"
+                    data-bs-target="#modalLocutores">
+                    Locutores
+                </button>
+                <!--Botão Locutores-->
+                <button title="Enquetes" aria-label="Enquetes" type="button"
+                    class="btn d-flex justify-content-start icons enquetes" data-bs-toggle="modal"
+                    data-bs-target="#modalEnquetes">
+                    Enquetes
+                </button>
+                <!--Botão Locutores-->
+                <!--Botão Sobre-->
+                <button title="Sobre" aria-label="Sobre" type="button"
+                    class="btn d-flex justify-content-start icons aboutMenu" data-bs-toggle="modal"
+                    data-bs-target="#modalSobre">
+                    Sobre
+                </button>
+                <!--Botão Sobre-->
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Prompt de Instalação Personalizado para iOS -->
+    <div id="ios-install-prompt" class="card position-absolute bottom-0 start-50 translate-middle-x p-1"
+        style="display: none; background-color: white; text-align:center; box-shadow: 0px -2px 5px rgba(0,0,0,0.2);width: 18rem;">
+        <button type="button" id="closeios" class="btn-close position-absolute top-0 end-0" aria-label="Close"></button>
+
+        <p class="p-4">Para instalar o aplicativo, pressione <i class="fa-solid fa-share-from-square fa-xl"></i> e em seguida em
+            "Adicionar
+            à
+            tela
+            inicial".
+        </p>
+    </div>
+
+
+
+    <div class="d-flex justify-content-center align-self-center position-absolute top-50 start-50 translate-middle">
+
+
+        <div class="card d-flex p-2" style="width: 18rem;">
+            <img src="" class="card-img-top" id="img_logo" alt="Logo da radio">
+            <div class="card-body">
+                <audio hidden id="player" src="" controls></audio>
+                <div id="controles" class="mb-3 d-flex align-items-center justify-content-center">
+                    <i title="Reproduzir" aria-label="Reproduzir" class="fa-solid fa-play fa-2xl" id="play_btn"></i>
+                </div>
+                <div class="card-text rounded p-1 " id="letra_nome">
+                    <div class="font-weight-bold text-nowrap" id="letra_p"></div>
+                </div>
+                <div class="d-flex p-3 justify-content-around">
+                    <!-- Botão Letra e capa -->
+                    <button title="Letra e capa" aria-label="Letra e Capa" type="button" class="btn"
+                        data-bs-toggle="modal" data-bs-target="#modalLetraecapa">
+                        <i class="fa-solid fa-music fa-lg icons"></i>
+                    </button>
+                    <!-- Botão site radio -->
+                    <a class="btn" target="_blank" aria-label="Site da rádio" title="Site da rádio" id="website">
+                        <i class="fa-solid fa-globe fa-lg icons"></i>
+                    </a>
+                    <!-- Botão dropdown rede social -->
+                    <div aria-label="Redes Sociais" title="Redes Sociais" class="dropdown-center">
+                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fa-solid fa-share-nodes fa-lg icons"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" target="_blank" id="facebook" title="Facebook"
+                                    aria-label="Facebook" href=""><i class="fa-brands fa-facebook-f fa-lg icons">
+                                        Facebook</i></a></li>
+                            <li><a class="dropdown-item" target="_blank" id="whatsapp" title="Whatsapp"
+                                    aria-label="Whatsapp" href=""><i class="fa-brands fa-whatsapp fa-lg icons">
+                                        Whatsapp</i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Div instalar app -->
+    <div class="card floating-card position-absolute bottom-0 start-50 translate-middle-x p-2" id="install-card"
+        style="display: block; width: 19rem;">
+        <div class="container">
+            <p>Deseja instalar o aplicativo?</p>
+            <div class="row justify-content-around">
+                <div class="col">
+                    <button class="btn btn-success" id="install-button-pwa">Instalar</button>
+                </div>
+                <div class="col">
+                    <button id="reject-button" class="btn btn-light">Recusar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Letra e capa -->
+    <div class="modal fade text-center" id="modalLetraecapa" tabindex="-1" aria-labelledby="modalLetraecapa"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h1 class="modal-title fs-5 fw-semibold text-center" id="modalArtista"></h1>
+                    <!-- <a id="youtube" target="_blank" href=""><i class="text-danger fa-brands fa-youtube fa-xl"></i></a> -->
+                    <h2 class="fs-5 fw-semibold" id="modalTitulo"></h2>
+                    <img src="" class="img-thumbnail" id="coverAlbum" alt="Capa do álbum" title="Capa do álbum"
+                        aria-label="Capa do álbum">
+                    <p class="fs-6" id="modalLetra"></p>
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" title="fechar"
+                        aria-label="Fechar">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Redes Sociais -->
+    <div class="modal fade text-center" id="modalRedeSocial" tabindex="-1" aria-labelledby="modalRedeSociais"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content ">
+                <div class="modal-body d-flex justify-content-evenly p-4">
+                    <div class=" ">
+                        <a id="redeFacebook" title="Facebook" aria-label="Facebook" target="_blank" href=""><i
+                                class="fa-brands fa-facebook fa-2xl icons"></i></a>
+                        <h5 class="icons">Facebook</h5>
+                        <a id="redeInstagram" title="Instagram" aria-label="Instagram" target="_blank" href=""><i
+                                class="fa-brands fa-instagram fa-2xl icons"></i></a>
+                        <h5 class="icons">Instagram</h5>
+                    </div>
+                    <div class="  ">
+                        <a id="redeWhatsapp" title="WhatsApp" aria-label="WhatsApp" target="_blank" href=""><i
+                                class="fa-brands fa-whatsapp fa-2xl icons"></i></a>
+                        <h5 class="icons">Whatsapp</h5>
+                        <a id="redeYoutube" title="Youtube" aria-label="Youtube" target="_blank" href=""><i
+                                class="fa-brands fa-youtube fa-2xl icons"></i></a>
+                        <h5 class="icons">Youtube</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Programação -->
+    <div class="modal fade text-center" id="modalProgramacao" tabindex="-1" aria-labelledby="modalProgramacao"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content p-4">
+                <div class="modal-body row align-items-center" style="overflow: hidden;">
+                    <div class="btn-group m-0 p-2" role="group" aria-label="Botões programação">
+                        <button type="button" class="btn btn-primary btn-sm" id="dom-btn">DOM</button>
+                        <button type="button" class="btn btn-primary btn-sm" id="seg-btn">SEG</button>
+                        <button type="button" class="btn btn-primary btn-sm" id="ter-btn">TER</button>
+                        <button type="button" class="btn btn-primary btn-sm" id="qua-btn">QUA</button>
+                        <button type="button" class="btn btn-primary btn-sm" id="qui-btn">QUI</button>
+                        <button type="button" class="btn btn-primary btn-sm" id="sex-btn">SEX</button>
+                        <button type="button" class="btn btn-primary btn-sm" id="sab-btn">SAB</button>
+                    </div>
+                </div>
+                <div id="programacao-content" class="mt-4">
+                    <!-- Conteúdo da programação sera exibido aqui -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Recados -->
+    <div class="modal fade text-center" id="modalRecados" tabindex="-1" aria-labelledby="modalRecados"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content m-5">
+                <div id="contentRecados" class="modal-body m-5">
+                    <h3 class="alert alert-info">Recados</h3>
+
+                </div>
+                <button title="EnviarRecados" aria-label="EnviarRecados" type="button" class="btn btn-dark mx-auto m-3"
+                    data-bs-toggle="modal" data-bs-target="#modalEnviarRecados">
+                    Enviar recado
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Enviar Recados -->
+    <div class="modal fade text-center" id="modalEnviarRecados" tabindex="-1" aria-labelledby="modalEnviarRecados"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content m-3">
+                <form id="messageForm" action="" class="form-control form-control-sm needs-validation" method="POST">
+                    <!-- Mensagem de sucesso -->
+                    <div id="success-messageR" class="alert alert-success mt-3" style="display: none;"></div>
+                    <!-- Mensagem de erro -->
+                    <div id="error-messageR" class="alert alert-danger mt-3" style="display: none;"></div>
+
+                    <input type="hidden" id="builderIdR" name="builder_id" value="">
+                    <div class="mb-1">
+                        <label for="name" class="form-label">Nome:</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="mb-1">
+                        <label for="email" class="form-label">Email:</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="mb-1">
+                        <label for="message" class="form-label">Mensagem:</label>
+                        <textarea id="message" name="message" style="resize: none;" rows="2" class="form-control"
+                            required></textarea>
+                    </div>
+                    <div class="mb-1">
+                        <label for="state" class="form-label">Estado:</label>
+                        <input type="text" class="form-control" id="state" name="state" value="MG" required>
+                    </div>
+                    <div class="mb-1">
+                        <label for="city" class="form-label">Cidade:</label>
+                        <input type="text" class="form-control" id="city" name="city" value="Belo Horizonte" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mx-auto p-3">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Pedidos de música -->
+    <div class="modal fade text-center" id="modalpedemusica" tabindex="-1" aria-labelledby="modalpedemusica"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content m-3">
+                <h3>Pedidos de música</h3>
+                <div class="container mt-5 p-2">
+                    <form id="musicRequestForm" action="" method="POST"
+                        class="form-control form-control-sm needs-validation" novalidate>
+
+                        <!-- Mensagem de sucesso -->
+                        <div id="success-messagePM" class="alert alert-success mt-3" style="display: none;">Pedido de
+                            música
+                            enviado.</div>
+                        <!-- Mensagem de erro -->
+                        <div id="error-messagePM" class="alert alert-danger mt-3" style="display: none;">Erro.</div>
+
+                        <input type="hidden" id="builderIdPM" name="builder_id" value="">
+                        <div class="mb-1">
+                            <label for="name" class="form-label">Nome:</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="mb-1">
+                            <label for="email" class="form-label">Email:</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="mb-1">
+                            <label for="message" class="form-label">Mensagem:</label>
+                            <textarea id="message" name="message" style="resize: none;" rows="1" class="form-control"
+                                required></textarea>
+                        </div>
+                        <div class="mb-1">
+                            <label for="state" class="form-label">Estado:</label>
+                            <input type="text" class="form-control" id="state" name="state" value="MG" required>
+                        </div>
+                        <div class="mb-1">
+                            <label for="city" class="form-label">Cidade:</label>
+                            <input type="text" class="form-control" id="city" name="city" value="Belo Horizonte"
+                                required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Locutores -->
+    <div class="modal fade text-center" id="modalLocutores" tabindex="-1" aria-labelledby="modalLocutores"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content m-5">
+                <div id="contentLocutor" class="modal-body p-5">
+                    <h3 class="alert alert-success">Locutores</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Enquetes -->
+    <div class="modal fade text-center" id="modalEnquetes" tabindex="-1" aria-labelledby="modalEnquetes"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content m-5">
+                <div id="contentEnquete" class="modal-body p-5 text-center">
+                    <h3 class="alert alert-warning">Enquetes</h3>
+                    <div class="container mt-5">
+                        <form id="enqueteForm" action="" method="POST"
+                            class="form-control form-control-sm needs-validation" novalidate>
+                            <input type="hidden" id="builderIdE" name="builder_id" value="">
+                            <div id="enquetes">
+
+                            </div>
+                            <button type="submit" id="votarEnquete" class="btn btn-success btn-rounded">Votar</button>
+                            <button type="button" id="verVotosEnquete" class="btn btn-info btn-rounded">Ver votos</button>
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Sobre -->
+    <div class="modal fade text-center" id="modalSobre" tabindex="-1" aria-labelledby="modalSobre" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content m-5">
+                <div class="modal-body p-5">
+                    <h3>App desenvolvido por João Aquino</h3>
+                    <a target="_blank" href="https://Maxcast.com.br"><img
+                            src="https://maxcast.com.br/wp-content/themes/maxcast-bs4/images/logo-maxcast.svg"
+                            title="Maxcast" aria-label="Maxcast" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Fim modais-->
+
+    <!-- bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <!-- jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.js"
+        integrity="sha512-CX7sDOp7UTAq+i1FYIlf9Uo27x4os+kGeoT7rgwvY+4dmjqV0IuE/Bl5hVsjnQPQiTOhAX1O2r2j5bjsFBvv/A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- firebase-app -->
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
+    <!-- firebase-database -->
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-database.js"></script>
+    <!-- firebase-auth -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+    <!-- codigo javascript -->
+    <script src="index.js"> </script>
+</body>
+
+</html>

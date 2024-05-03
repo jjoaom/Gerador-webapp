@@ -1,0 +1,30 @@
+{
+    "name": "Maxcast Exemplo Radio Social",
+    "short_name": "Maxcast Exemplo Radio Social",
+    "icons": [
+        {
+            "src": "https://social.maxcast.com.br/storage/mobile-app/icon/675fa331-02b8-48cb-8263-429411286905.png",
+            "sizes": "152x152",
+            "type": "image/png"
+        },
+        {
+            "src": "https://social.maxcast.com.br/storage/mobile-app/icon/675fa331-02b8-48cb-8263-429411286905.png",
+            "sizes": "167x167",
+            "type": "image/png"
+        },
+        {
+            "src": "https://social.maxcast.com.br/storage/mobile-app/icon/675fa331-02b8-48cb-8263-429411286905.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "https://social.maxcast.com.br/storage/mobile-app/icon/675fa331-02b8-48cb-8263-429411286905.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "index.php",
+    "display": "fullscreen",
+    "background_color": "#4d42c9",
+    "theme_color": "#8f8f8f"
+}

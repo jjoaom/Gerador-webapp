@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de App Web</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        .inactiveLink {
+            pointer-events: none;
+            cursor: default;
+        }
+
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid d-flex flex-column h-100 justify-content-center align-items-center">
+        <header class="text-center mb-5">
+            <h1>Gerador de App Web</h1>
+        </header>
+
+        <main class="d-flex flex-column justify-content-center align-items-center">
+            <form id="generator-form" method="POST">
+                <div class="form-group mb-3 d-flex flex-column align-items-start">
+                    <label for="api-number" class="form-label">Insira o ID webrádio:</label>
+                    <div class="input-group w-100">
+                        <a href="https://social.maxcast.com.br/api/mobile-app/" target="_blank"
+                            class="btn btn-outline-secondary btn-sm inactiveLink">social.maxcast.com.br/api/mobile-app/</a>
+                        <input type="number" class="form-control form-control-sm" id="api-number" name="api-number"
+                            required>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button type="button" id="generate-btn" class="btn btn-primary">Gerar App</button>
+                </div>
+
+            </form>
+
+            <div class="" id="result"></div>
+        </main>
+        <footer>
+            <div class="position-absolute bottom-0 start-50 translate-middle-x">
+                <h9>App desenvolvido por João Aquino</h9>
+                <a target="_blank" href="https://Maxcast.com.br"><img
+                        src="https://maxcast.com.br/wp-content/themes/maxcast-bs4/images/logo-maxcast.svg"
+                        title="Maxcast" aria-label="Maxcast" alt=""></a>
+            </div>
+        </footer>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const generateBtn = document.getElementById('generate-btn');
+                const apiUrlInput = document.getElementById('api-number');
+                // Removido o input para o nome do App
+                const resultDiv = document.getElementById('result');
+
+                generateBtn.addEventListener('click', () => {
+                    const apiUrl = apiUrlInput.value.trim();
+                    // Removido o código para obter o nome do App
+
+                    if (!apiUrl) {
+                        alert('Preencha o campo do ID da webrádio!');
+                        return;
+                    }
+
+                    fetch('gerador.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: `api-number=${apiUrl}` // Removido o appName
+                    })
+                        .then(response => response.text())
+                        .then(data => {
+                            resultDiv.innerHTML = data;
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                        });
+                });
+            });
+        </script>
+</body>
+
+</html>
