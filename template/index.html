@@ -149,13 +149,13 @@
                     data-bs-target="#modalLocutores">
                     Locutores
                 </button>
-                <!--Botão Locutores-->
+                <!--Botão Enquete-->
                 <button title="Enquetes" aria-label="Enquetes" type="button"
                     class="btn d-flex justify-content-start icons enquetes" data-bs-toggle="modal"
                     data-bs-target="#modalEnquetes">
-                    Enquetes
+                    Enquete
                 </button>
-                <!--Botão Locutores-->
+                <!--Botão Enquete-->
                 <!--Botão Sobre-->
                 <button title="Sobre" aria-label="Sobre" type="button"
                     class="btn d-flex justify-content-start icons aboutMenu" data-bs-toggle="modal"
@@ -226,7 +226,7 @@
         </div>
     </div>
 
-    <!-- Div instalar app -->
+    <!-- Div instalar app Navegadores/Android -->
     <div class="card floating-card position-absolute bottom-0 start-50 translate-middle-x p-2" id="install-card"
         style="display: block; width: 19rem;">
         <div class="container">
@@ -248,6 +248,7 @@
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-body">
+                    <button type="button" class="btn-close position-absolute top-0 end-0" data-bs-dismiss="modal" aria-label="Close"></button>
                     <h1 class="modal-title fs-5 fw-semibold text-center" id="modalArtista"></h1>
                     <!-- <a id="youtube" target="_blank" href=""><i class="text-danger fa-brands fa-youtube fa-xl"></i></a> -->
                     <h2 class="fs-5 fw-semibold" id="modalTitulo"></h2>
@@ -269,6 +270,7 @@
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content ">
                 <div class="modal-body d-flex justify-content-evenly p-4">
+                    <button type="button" class="btn-close position-absolute top-0 end-0" data-bs-dismiss="modal" aria-label="Close"></button>
                     <div class=" ">
                         <a id="redeFacebook" title="Facebook" aria-label="Facebook" target="_blank" href=""><i
                                 class="fa-brands fa-facebook fa-2xl icons"></i></a>
@@ -295,7 +297,9 @@
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content p-4">
                 <div class="modal-body row align-items-center" style="overflow: hidden;">
+                    <button type="button" class="btn-close position-absolute top-0 end-0" data-bs-dismiss="modal" aria-label="Close"></button>
                     <div class="btn-group m-0 p-2" role="group" aria-label="Botões programação">
+                        
                         <button type="button" class="btn btn-primary btn-sm" id="dom-btn">DOM</button>
                         <button type="button" class="btn btn-primary btn-sm" id="seg-btn">SEG</button>
                         <button type="button" class="btn btn-primary btn-sm" id="ter-btn">TER</button>
@@ -317,9 +321,11 @@
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content m-5">
+                <button type="button" class="btn-close position-absolute top-0 end-0" data-bs-dismiss="modal" aria-label="Close"></button>
                 <div id="contentRecados" class="modal-body m-5">
+                    
                     <h3 class="alert alert-info">Recados</h3>
-
+                    <!-- Recados serao exibidos aqui -->
                 </div>
                 <button title="EnviarRecados" aria-label="EnviarRecados" type="button" class="btn btn-dark mx-auto m-3"
                     data-bs-toggle="modal" data-bs-target="#modalEnviarRecados">
@@ -333,7 +339,10 @@
     <div class="modal fade text-center" id="modalEnviarRecados" tabindex="-1" aria-labelledby="modalEnviarRecados"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            
             <div class="modal-content m-3">
+                <button type="button" class="btn-close position-absolute top-0 end-0" data-bs-dismiss="modal" aria-label="Close"></button>
+
                 <form id="messageForm" action="" class="form-control form-control-sm needs-validation" method="POST">
                     <!-- Mensagem de sucesso -->
                     <div id="success-messageR" class="alert alert-success mt-3" style="display: none;"></div>
@@ -374,6 +383,8 @@
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content m-3">
+                <button type="button" class="btn-close position-absolute top-0 end-0" data-bs-dismiss="modal" aria-label="Close"></button>
+
                 <h3>Pedidos de música</h3>
                 <div class="container mt-5 p-2">
                     <form id="musicRequestForm" action="" method="POST"
@@ -424,7 +435,10 @@
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content m-5">
                 <div id="contentLocutor" class="modal-body p-5">
+                    <button type="button" class="btn-close position-absolute top-0 end-0" data-bs-dismiss="modal" aria-label="Close"></button>
+
                     <h3 class="alert alert-success">Locutores</h3>
+                    <!-- Locutores serão exibidos aqui -->
                 </div>
             </div>
         </div>
@@ -435,16 +449,18 @@
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content m-5">
                 <div id="contentEnquete" class="modal-body p-5 text-center">
-                    <h3 class="alert alert-warning">Enquetes</h3>
+                    <button type="button" class="btn-close position-absolute top-0 end-0" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                    <h3 class="alert alert-warning">Enquete</h3>
                     <div class="container mt-5">
                         <form id="enqueteForm" action="" method="POST"
                             class="form-control form-control-sm needs-validation" novalidate>
                             <input type="hidden" id="builderIdE" name="builder_id" value="">
                             <div id="enquetes">
-
+                                <!--Enquetes serão exibidos aqui-->
                             </div>
-                            <button type="submit" id="votarEnquete" class="btn btn-success btn-rounded">Votar</button>
-                            <button type="button" id="verVotosEnquete" class="btn btn-info btn-rounded">Ver votos</button>
+                            
+                            
                         </form>
 
 
@@ -459,7 +475,9 @@
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content m-5">
                 <div class="modal-body p-5">
-                    <h3>App desenvolvido por João Aquino</h3>
+                    <button type="button" class="btn-close position-absolute top-0 end-0" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                    <p>App desenvolvido por João Aquino</p>
                     <a target="_blank" href="https://Maxcast.com.br"><img
                             src="https://maxcast.com.br/wp-content/themes/maxcast-bs4/images/logo-maxcast.svg"
                             title="Maxcast" aria-label="Maxcast" alt=""></a>
@@ -474,9 +492,7 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <!-- jquery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.js"
-        integrity="sha512-CX7sDOp7UTAq+i1FYIlf9Uo27x4os+kGeoT7rgwvY+4dmjqV0IuE/Bl5hVsjnQPQiTOhAX1O2r2j5bjsFBvv/A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.slim.min.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj+KsslFkCOt3TvJrX2AV/Gc3wOqA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- firebase-app -->
     <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
     <!-- firebase-database -->
