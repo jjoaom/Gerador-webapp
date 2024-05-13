@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Configuration
-    $rootDir = '/home/newapp/www/testejoaoaquino';
+    $rootDir =  __DIR__ . '/apps';
     $templateDir = __DIR__ . '/template';
 
     // Substitui o valor do idRadio no index.js
